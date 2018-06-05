@@ -16,10 +16,9 @@ import persistencia.Conexao;
  *
  * @author Administrador
  */
-public class Categoriadao {
-    
+public class Produtodao {
     public boolean inserir(String descricao) {
-        String sql = "INSERT INTO categoria(nome) VALUES (?)";//define instrução SQL
+        String sql = "INSERT INTO categoria(descricao) VALUES (?)";//define instrução SQL
         PreparedStatement ps;
         try {
             ps = Conexao.getConexao().prepareStatement(sql);//prepara instrução SQL
@@ -34,14 +33,13 @@ public class Categoriadao {
 
     public static void main(String[] args) {
         //crie um objeto da classe 
-        Categoriadao dao = new Categoriadao();
+        Produtodao dao = new Produtodao();
         //chame o método inserir desse objeto
-        boolean result = dao.inserir("Drama");
+        boolean result = dao.inserir("Pao");
         if (result) {
             JOptionPane.showMessageDialog(null, "Inserção realizada com sucesso!");
         } else {
             JOptionPane.showMessageDialog(null, "Problemas com a inserção!");
         }
     }
-
 }
